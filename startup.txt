@@ -1,0 +1,40 @@
+Basic document on getting started:
+
+make sure you have these installed(change indigo to kinetic etc..if you have differnt version of ros)
+
+ros-indigo-mavros-msgs
+
+ros-indigo-robot-localization
+
+ros-indigo-robotnik-msgs
+
+ros-indigo-robotnik-sensors 
+
+ros-indigo-gazebo-ros-control
+
+ros-indigo-joint-state-controller
+
+
+
+- get the robotnik sim code:
+https://github.gatech.edu/shaviland3/MBIZRC_Challenge2
+--this specfically is the indigo-dev branch of their code
+
+one tab:
+roslaunch summit_xl_sim_bringup summit_xl_complete.launch
+
+note: /summit_xl_sim/summit_xl_gazebo/worlds/summit_xl.world
+the file has a panel in it that is depenent on location on your computer os you need to change the <uri> to match where you put it. you don't need panel in it if you don't care about it
+
+
+one tab:
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+-this allows driving vehicle around via keyboard commands
+
+one tab:
+roslaunch summit_xl_localization robot_localization_complete.launch
+-this runs the navigation stuff - the standard branch had issues with topics - had to copy changes they made from their kinetic branch
+
+one tab:
+rviz
+-in bottom left - hit add - by topic - add odometry messages to get the nav state output
